@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        /* Primary Header */
+        .navbar {
+            background-color: #2C3E50;
+            padding: 1rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar .navbar-title {
+            color: #FFD700;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem; /* Reduced font size to prevent wrapping */
+            text-align: center;
+        }
+        .navbar .navbar-logo {
+            height: 50px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        /* Secondary Header */
+        .secondary-nav {
+            background-color: #4A5A70;
+            padding: 10px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .secondary-nav .nav-links {
+            margin-right: 10px;
+        }
+        .secondary-nav .nav-links a {
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+        .secondary-nav .nav-links a:hover {
+            text-decoration: underline;
+        }
+        /* Main Content */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .welcome-message {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .welcome-message h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #2C3E50;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .text-center img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+        .feedback-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .feedback-link a {
+            color: #007bff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .feedback-link a:hover {
+            text-decoration: underline;
+        }
+        /* Footer */
+        .footer {
+            background-color: #2C3E50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Primary Navigation Bar -->
+    <nav class="navbar">
+        <img src="{{ url_for('static', filename='images/NEW LOGO.jpeg') }}" alt="RVCE Logo" class="navbar-logo">
+        <div class="navbar-title">RV College of Engineering – Alumni Portal</div>
+    </nav>
+
+    <!-- Secondary Navigation Bar -->
+    <nav class="secondary-nav">
+        <div class="page-title">Faculty Dashboard</div>
+        <div class="nav-links">
+            <a href="/alumni_details">Alumni Details</a>
+            <a href="/view_achievement">Alumni Achievements</a>
+            <a href="/add_update">Post Updates</a>
+            <a href="/view_updates">College Updates</a>
+        </div>
+    </nav>
+    
+    <!-- Main Section -->
+    <div class="container">
+        <!-- Welcome Message -->
+        <div class="welcome-message">
+            <h2>Welcome to the Faculty Dashboard of RV Alumni Connect!</h2>
+        </div>
+
+        <!-- College Image -->
+        <div class="text-center">
+            <img src="{{ url_for('static', filename='images/img2.jpg') }}" alt="College Photo">
+        </div>
+        
+        <!-- Link to Feedback Form -->
+        <div class="feedback-link">
+            <h4>Have feedback? <a href="/feedback">Click here</a> to submit your feedback.</h4>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        A Project by Ananya Anand, Ankita Kumari & Anish S.
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

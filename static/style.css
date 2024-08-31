@@ -1,0 +1,202 @@
+/* General Styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Header Styling */
+.navbar {
+    background-color: #2C3E50; /* Classy navy blue */
+    padding: 1rem;
+    color: white;
+    text-align: center;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-logo {
+    height: 50px;
+    margin-right: 15px;
+    cursor: pointer; /* Indicates the logo is clickable */
+}
+
+.navbar-title {
+    color: #FFD700; /* Gold color for a premium feel */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+/* Main Section Styling */
+.main-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.main-section img {
+    max-width: 100%;
+    max-height: 50vh;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.main-section .image-text {
+    position: absolute;
+    top: 18%; /* Adjusted to prevent wrapping and keep text in whitespace */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: maroon;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.main-section .image-text span {
+    color: #2C3E50; /* Matching the new navy blue */
+    font-weight: bold;
+}
+
+.main-section .buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.buttons a {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.buttons .btn-register {
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: white;
+}
+
+.buttons .btn-register:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+}
+
+.buttons .btn-login {
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: white;
+}
+
+.buttons .btn-login:hover {
+    background: linear-gradient(135deg, #218838, #1e7e34);
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #2C3E50; /* Classy navy blue */
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* General Styling - Login Form */
+.container {
+    background: white;
+    padding: 30px; /* Reduced padding for a more compact look */
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 350px; /* Reduced width for a smaller form */
+    width: 100%;
+    margin: 0 auto; /* Center the container */
+}
+
+.container h1 {
+    margin-bottom: 20px; /* Reduced bottom margin */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem; /* Slightly smaller font size */
+    color: #2C3E50;
+    text-align: center;
+}
+
+/* Form group layout with labels to the left */
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Reduced spacing between form elements */
+}
+
+.form-group label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #2C3E50;
+    margin-right: 10px; /* Reduced space between label and input */
+    width: 90px; /* Slightly reduced width for labels */
+    text-align: right; /* Right-align the labels */
+}
+
+.form-group input,
+.form-group select {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 8px; /* Reduced padding */
+    font-size: 0.9rem; /* Slightly smaller font size */
+    width: calc(100% - 110px); /* Adjust width to fill remaining space */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Improved button spacing */
+.btn-primary {
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: white;
+    padding: 10px; /* Slightly reduced padding */
+    font-size: 1rem; /* Slightly smaller font size */
+    border-radius: 8px;
+    width: 100%;
+    transition: background 0.3s ease;
+    margin-top: 15px; /* Adjusted space above the button */
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+}
+
+.alert {
+    margin-bottom: 15px; /* Reduced margin-bottom */
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+
+.close {
+    font-size: 1.2rem;
+}
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* General Body Styles */
+        
+        /* Primary Navigation Bar Styles */
+        
+        /* Secondary Navigation Bar Styles */
+        .secondary-nav {
+            background-color: #f4f4f4; /* Keep existing color */
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .page-title {
+            font-size: 1.2em;
+            margin: 0;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 10px 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333; /* Keep existing color */
+            font-size: 1em;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Section Styles */
+        
+    </style>
+</head>
+<body>
+    <!-- Primary Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <img src="{{ url_for('static', filename='images/NEW LOGO.jpeg') }}" alt="RVCE Logo" class="navbar-logo">
+            <div class="navbar-title">RV College of Engineering – Alumni Portal</div>
+        </div>
+    </nav>
+    
+    <!-- Secondary Navigation Bar -->
+    <nav class="secondary-nav">
+        <div class="page-title">Student Dashboard</div>
+        <div class="nav-links">
+            <a href="/alumni_details">Alumni Details</a>
+            <a href="/students_job_postings">Job Postings</a>
+            <a href="/view_achievement">Alumni Achievements</a>
+            <a href="/view_updates">College Updates</a>
+            <a href="/discussion_list">Discussions</a>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <div class="main-section">
+        <div class="welcome-message">
+            <h2>Welcome to the Student Dashboard of RV Alumni Connect!</h2>
+        </div>
+
+        <!-- College Image -->
+        <div class="text-center">
+            <img src="{{ url_for('static', filename='images/img2.jpg') }}" alt="College Photo">
+        </div>
+        
+        <!-- Welcome Message -->
+        <div class="welcome-message">
+            <h3>Explore the various features and resources available for students.</h3>
+        </div>
+        
+        <!-- Link to Feedback Form -->
+        <div class="feedback-link">
+            <h4>Have feedback? <a href="/feedback">Click here</a> to submit your feedback.</h4>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        A Project by Ananya Anand, Ankita Kumari & Anish S.
+    </footer>
+</body>
+</html>
+

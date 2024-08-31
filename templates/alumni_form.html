@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Alumni Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Specific styling for the Alumni Form page */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .form-container {
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Update Alumni Details</h1>
+        <form method="POST" action="/update_details">
+            <label for="current_location">Current Location:</label>
+            <input type="text" id="current_location" name="current_location" value="{{ alumni.current_location }}">
+            
+            <label for="working_at">Working At:</label>
+            <input type="text" id="working_at" name="working_at" value="{{ alumni.working_at }}">
+            
+            <label for="linked_in_profile_link">LinkedIn Profile Link:</label>
+            <input type="text" id="linked_in_profile_link" name="linked_in_profile_link" value="{{ alumni.linked_in_profile_link }}">
+            
+            <label for="about_me">About Me:</label>
+            <textarea id="about_me" name="about_me">{{ alumni.about_me }}</textarea>
+            
+            <input type="submit" value="Update">
+        </form>
+    </div>
+</body>
+</html>
+

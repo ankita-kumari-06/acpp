@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Job Postings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Specific styling for the Alumni Job Postings View page */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        .job-posting {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #fafafa;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .job-posting h4 {
+            margin-bottom: 10px;
+            color: #2C3E50;
+            font-weight: 600;
+        }
+        .job-posting p {
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .job-posting a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .job-posting a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Job Postings</h1>
+        {% if job_postings %}
+            {% for job in job_postings %}
+                <div class="job-posting">
+                    <h4>{{ job.company }}</h4>
+                    <p><strong>Role:</strong> {{ job.role }}</p>
+                    <p><strong>CTC:</strong> {{ job.ctc }}</p>
+                    <p><strong>Location:</strong> {{ job.job_location }}</p>
+                    <p><strong>Contact Email:</strong> <a href="mailto:{{ job.alumni_email }}">{{ job.alumni_email }}</a></p>
+                    <p><strong>Additional info:</strong> {{ job.content }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>You have not posted any job openings yet.</p>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

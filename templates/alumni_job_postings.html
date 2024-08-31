@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Job Postings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Specific styling for the Alumni Job Postings form page */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            width: 120px;
+            font-weight: 600;
+            color: #2C3E50;
+            margin-right: 10px;
+        }
+        .form-control {
+            flex: 1;
+            border-radius: 8px;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            display: block;
+            width: 100%;
+            background-color: #007BFF;
+            border-color: #007BFF;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Alumni Job Postings</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        
+        <form method="POST" action="/alumni_job_postings">
+            <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" class="form-control" id="company" name="company" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Role</label>
+                <input type="text" class="form-control" id="role" name="role" required>
+            </div>
+            <div class="form-group">
+                <label for="ctc">CTC</label>
+                <input type="text" class="form-control" id="ctc" name="ctc">
+            </div>
+            <div class="form-group">
+                <label for="job_location">Job Location</label>
+                <input type="text" class="form-control" id="job_location" name="job_location" required>
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Details - RVCE Alumni Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Specific styling for Alumni Details page */
+        .alumni-container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .table-responsive {
+            margin-top: 20px;
+        }
+        .table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+        .table th, .table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        .table th {
+            background-color: #2C3E50;
+            color: white;
+        }
+        .table td a {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Primary Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <img src="{{ url_for('static', filename='images/NEW LOGO.jpeg') }}" alt="RVCE Logo" class="navbar-logo">
+            <div class="navbar-title">RV College of Engineering – Alumni Portal</div>
+        </div>
+    </nav>
+    
+    <!-- Secondary Navigation Bar -->
+    
+
+    <!-- Main Section -->
+    <div class="main-section">
+        <div class="alumni-container">
+            <h1>Alumni Details</h1>
+            
+            <form class="form-inline" method="POST" action="/alumni_details">
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="department" class="sr-only">Department</label>
+                    <select id="department" name="department" class="form-control">
+                        <option value="">Select Department</option>
+                        {% for department in departments %}
+                            <option value="{{ department.dept_id }}">{{ department.dept_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="passout_year" class="sr-only">Passout Year</label>
+                    <input type="number" class="form-control" id="passout_year" name="passout_year" placeholder="Passout Year">
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="company" class="sr-only">Company</label>
+                    <input type="text" class="form-control" id="company" name="company" placeholder="Company">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Filter</button>
+            </form>
+            
+            <div class="table-responsive">
+                {% if alumni_details %}
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Passout Year</th>
+                                <th>Department</th>
+                                <th>Current Location</th>
+                                <th>Currently Working At</th>
+                                <th>LinkedIn Profile</th>
+                                <th>About Me</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for alumni in alumni_details %}
+                                <tr>
+                                    <td>{{ alumni.name }}</td>
+                                    <td><a href="mailto:{{ alumni.email }}">{{ alumni.email }}</a></td>
+                                    <td>{{ alumni.passout_year }}</td>
+                                    <td>{{ alumni.department.dept_name }}</td>
+                                    <td>{{ alumni.current_location }}</td>
+                                    <td>{{ alumni.working_at }}</td>
+                                    <td><a href="{{ alumni.linked_in_profile_link }}" target="_blank">LinkedIn Profile</a></td>
+                                    <td>{{ alumni.about_me }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <div class="alert alert-info" role="alert">
+                        No alumni found for the selected criteria.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        A Project by Ananya Anand, Ankita Kumari & Anish S.
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Dashboard</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar {
+            background-color: #2C3E50;
+            padding: 1rem;
+            color: white;
+            text-align: center;
+        }
+        .navbar-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .navbar-logo {
+            height: 50px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        .navbar-title {
+            color: #FFD700;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        .secondary-nav {
+            background-color: #4A5A70;
+            padding: 10px;
+            color: white;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 0.9rem; /* Reduced font size */
+            font-weight: 600;
+        }
+        .secondary-nav .nav-links a {
+            color: white;
+            margin-left: 10px;
+            text-decoration: none;
+        }
+        .secondary-nav .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .main-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .main-section img {
+            max-width: 60%; /* Reduced image size */
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        .welcome-message h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #2C3E50;
+            margin-bottom: 10px; /* Reduced bottom margin */
+        }
+        .welcome-message h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: #2C3E50;
+            margin-bottom: 10px; /* Reduced bottom margin */
+        }
+        .feedback-link h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: #2C3E50;
+        }
+        .feedback-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .feedback-link a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            background-color: #2C3E50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Primary Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <img src="{{ url_for('static', filename='images/NEW LOGO.jpeg') }}" alt="RVCE Logo" class="navbar-logo">
+            <div class="navbar-title">RV College of Engineering – Alumni Portal</div>
+        </div>
+    </nav>
+    
+    <!-- Secondary Navigation Bar -->
+    <nav class="secondary-nav">
+        <div class="nav-links">
+            <a href="/alumni_form">Update Profile</a>
+            <a href="/alumni_details">Alumni Details</a>
+            <a href="/achievements">Alumni Achievements</a>
+            <a href="/view_updates">College Updates</a>
+            <a href="/discussion_list">Discussion forum</a>
+            <a href="/alumni_job_postings">Add job posting</a>
+            <a href="/alumni_job_postings_view">View added posting</a>
+            <a href="/view_faculty">Contact Faculty</a>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <div class="main-section">
+        <!-- Welcome Message -->
+        <div class="welcome-message">
+            <h2>Welcome to the Alumni Dashboard of RV Alumni Connect!</h2>
+        </div>
+
+        <!-- College Image -->
+        <div class="text-center">
+            <img src="{{ url_for('static', filename='images/img2.jpg') }}" alt="College Photo">
+        </div>
+        
+        <!-- Welcome Message -->
+        <div class="welcome-message">
+            <h3>Explore the various features and resources available for alumni.</h3>
+        </div>
+        
+        <!-- Link to Feedback Form -->
+        <div class="feedback-link">
+            <h4>Have feedback? <a href="/feedback">Click here</a> to submit your feedback.</h4>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        A Project by Ananya Anand, Ankita Kumari & Anish S.
+    </footer>
+</body>
+</html>
+
