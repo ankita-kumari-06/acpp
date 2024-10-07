@@ -16,7 +16,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 # Set up database connection
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://alumni_connect_user:IhSvGtintEi4SF2VFNlDF747qyHfPQXf@dpg-cr9ao6d6l47c73cjv1h0-a.oregon-postgres.render.com/alumni_connect'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://a_connect_user:cUqc4D6sRU6nX2vREYaCzzvFR4PYNHiS@dpg-cs1ujo08fa8c73d58gqg-a.oregon-postgres.render.com/a_connect'
 db = SQLAlchemy(app)
 
 # this is for getting unique user access
