@@ -16,7 +16,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 # Set up database connection
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://a_connect_user:cUqc4D6sRU6nX2vREYaCzzvFR4PYNHiS@dpg-cs1ujo08fa8c73d58gqg-a.oregon-postgres.render.com/a_connect'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://a_connect_user:@dpg-cs1ujo08fa8c73d58gqg-a.oregon-postgres.render.com/a_connect'
 db = SQLAlchemy(app)
 
 # this is for getting unique user access
@@ -132,6 +132,25 @@ class Alumni_Achievement(db.Model):
 @app.route('/')
 def index():
     return render_template('index.html')
+
+def dashboard():
+    # Check if the user is logged in and has a role in the session
+    role = session.get('role')
+    if role:
+        # Perform role-based redirection within the function
+        if role == 'student':
+            return redirect(url_for('student_dashboard'))
+        elif role == 'faculty':
+            return redirect(url_for('faculty_dashboard'))
+        elif role == 'alumni':
+            return redirect(url_for('alumni_dashboard'))
+        else:
+            # If the role is unknown, redirect to the index page or show an error page
+            return redirect(url_for('index'))
+    else:
+        # If no role is found in the session, redirect to index
+        return redirect(url_for('index'))
+    
 
 @app.route('/register', methods=['GET'])
 def register_options():
@@ -487,7 +506,11 @@ def alumni_job_postings_view():
     job_postings = JobPosting.query.filter_by(alumni_email=current_user.email).all()
     return render_template('alumni_job_postings_view.html', job_postings=job_postings)
 
-
+def logout():
+    # Clear the session
+    session.clear()
+    # Redirect to index after logging out
+    return redirect(url_for('index'))
     
 if __name__ == '__main__':
     app.run(debug=True)

@@ -22,7 +22,26 @@
             margin: 0;
             padding: 0 20px;
         }
+        .navbar-buttons {
+            display: flex;
+            gap: 10px;
+        }
 
+        .button {
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
         .nav-links {
             display: flex;
             justify-content: center;
@@ -50,6 +69,10 @@
         <div class="navbar-content">
             <img src="{{ url_for('static', filename='images/NEW LOGO.jpeg') }}" alt="RVCE Logo" class="navbar-logo">
             <div class="navbar-title">RV College of Engineering – Alumni Portal</div>
+        </div>
+        <div class="navbar-buttons">
+            <a href="{{ url_for('dashboard') }}" class="button">Home</a>
+            <a href="{{ url_for('logout') }}" class="button">Logout</a>
         </div>
     </nav>
     
