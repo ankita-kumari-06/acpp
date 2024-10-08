@@ -133,6 +133,7 @@ class Alumni_Achievement(db.Model):
 def index():
     return render_template('index.html')
 
+@app.route('/dashboard')
 def dashboard():
     # Check if the user is logged in and has a role in the session
     role = session.get('role')
@@ -506,6 +507,7 @@ def alumni_job_postings_view():
     job_postings = JobPosting.query.filter_by(alumni_email=current_user.email).all()
     return render_template('alumni_job_postings_view.html', job_postings=job_postings)
 
+@app.route('/logout')
 def logout():
     # Clear the session
     session.clear()
