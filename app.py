@@ -133,25 +133,6 @@ class Alumni_Achievement(db.Model):
 def index():
     return render_template('index.html')
 
-@app.route('/dashboard')
-def dashboard():
-    # Check if the user is logged in and has a role in the session
-    role = session.get('role')
-    if role:
-        # Perform role-based redirection within the function
-        if role == 'student':
-            return redirect(url_for('student_dashboard'))
-        elif role == 'faculty':
-            return redirect(url_for('faculty_dashboard'))
-        elif role == 'alumni':
-            return redirect(url_for('alumni_dashboard'))
-        else:
-            # If the role is unknown, redirect to the index page or show an error page
-            return redirect(url_for('index'))
-    else:
-        # If no role is found in the session, redirect to index
-        return redirect(url_for('index'))
-    
 
 @app.route('/register', methods=['GET'])
 def register_options():
@@ -330,6 +311,27 @@ def alumni_details():
 @app.route('/alumni_dashboard')
 def alumni_dashboard():
     return render_template('alumni_dashboard.html')
+
+
+@app.route('/dashboard')
+def dashboard():
+    # Check if the user is logged in and has a role in the session
+    role = session.get('role')
+    if role:
+        # Perform role-based redirection within the function
+        if role == 'student':
+            return redirect(url_for('student_dashboard'))
+        elif role == 'faculty':
+            return redirect(url_for('faculty_dashboard'))
+        elif role == 'alumni':
+            return redirect(url_for('alumni_dashboard'))
+        else:
+            # If the role is unknown, redirect to the index page or show an error page
+            return redirect(url_for('index'))
+    else:
+        # If no role is found in the session, redirect to index
+        return redirect(url_for('index'))
+    
 
 @app.route('/discussion_list')
 def discussion_list():
